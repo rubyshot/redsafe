@@ -5,8 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "redsafe"
-    gem.summary = %Q{Red Safe}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = "This is a gem tool which simplifies signup functionality using various web services for connection credentials."
+    gem.description = "Red Safe is a conveyor belt to get your web-based project on a fast roll."
     gem.email = "domochoice@yahoo.com"
     gem.homepage = "http://github.com/rubyshot/redsafe"
     gem.authors = ["Ruby Shot"]

@@ -1,18 +1,13 @@
-= redsafe
+= RedSafe
 
-Description goes here.
+The Red Safe Project deals with the creation of a gem.  The gem's function is to streamline access to various websites through a connection consolidation of procedures.  
 
-== Note on Patches/Pull Requests
+== Notes on the Red Safe Project
+* This Project's focus is learning based.  
+* It is designed to function with the appengine jruby.
+* Clone it for your learning needs.
+* git clone  
  
-* Fork the project.
-* Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
-  future version unintentionally.
-* Commit, do not mess with rakefile, version, or history.
-  (if you want to have your own version, that is fine but
-   bump version in a commit by itself I can ignore when I pull)
-* Send me a pull request. Bonus points for topic branches.
-
 == Copyright
 
-Copyright (c) 2010 Ruby Shot. See LICENSE for details.
+Copyright (c) 2010 Ruby Shot. See <a href=http://creativecommons.org/licenses/MIT/>LICENSE</a> for details.
