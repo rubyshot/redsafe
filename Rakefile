@@ -3,8 +3,10 @@ require 'rake'
 
 begin
   require 'jeweler'
+  require 'lib/redsafe/version'
   Jeweler::Tasks.new do |gem|
     gem.name = "redsafe"
+    gemspec.version = Redsafe::Version::STRING
     gem.summary = "This is a gem tool which simplifies signup functionality using various web services for connection credentials."
     gem.description = "Red Safe is a conveyor belt to get your web-based project on a fast roll."
     gem.email = "domochoice@yahoo.com"
