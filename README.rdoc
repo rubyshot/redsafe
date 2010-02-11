@@ -10,4 +10,4 @@ The Red Safe Project deals with the creation of a gem.  The gem's function is to
  
 == Copyright
 
-Copyright (c) 2010 Ruby Shot. See <a href="http://creativecommons.org/licenses/MIT/">LICENSE</a> for details.
+Copyright (c) 2010 Ruby Shot. See LICENSE for details.
