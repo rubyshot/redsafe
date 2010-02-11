@@ -6,8 +6,8 @@ The Red Safe Project deals with the creation of a gem.  The gem's function is to
 * This Project's focus is learning based.  
 * It is designed to function with the appengine jruby.
 * Clone it for your learning needs.
-* git clone  
+* git clone git@github.com:rubyshot/redsafe.git
  
 == Copyright
 
-Copyright (c) 2010 Ruby Shot. See <a href=http://creativecommons.org/licenses/MIT/>LICENSE</a> for details.
+Copyright (c) 2010 Ruby Shot. See <a href="http://creativecommons.org/licenses/MIT/">LICENSE</a> for details.
