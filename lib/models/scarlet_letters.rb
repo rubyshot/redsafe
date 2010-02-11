@@ -2,9 +2,11 @@ if Object.const_defined?("DataMapper")
   #require 'dm-core'
   require 'dm-timestamps'
   require 'dm-validations'
-  require 'hpricot'
   require 'date'
   require 'time'
+  require Pathname(__FILE__).dirname.expand_path + "sl_aah.rb"
+  require Pathname(__FILE__).dirname.expand_path + "sl_user.rb"
+
 
 end
 
@@ -50,6 +52,7 @@ class User
 #3. resist: receives the desist string and reviews its integrity
 
   def self.sist
+     TIME_FMT = '%Y-%m-%dT%H:%M:%SZ'
      junk = self.random_string(6)
      t = Time.now.getutc
      time_str = t.strftime(TIME_FMT)
@@ -69,13 +72,13 @@ class User
   end
 
   def self.resist(the_sist_str)
-     resistance=false
      TIME_RANGE = 60*60*5
      timestamp, junk = self.desist(the_sist_str)
      now = Time.now.to_i 
-     future = now - TIME_RANGE
-     return true if timestamp <= future
-     return resistance
+     start = now - TIME_RANGE
+     finish = now + TIME_RANGE
+     return true if (start <= timestamp and timestamp <= finish)
+     return false
   end
 
 

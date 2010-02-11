@@ -1,13 +1,13 @@
 #redsafe
   %h1.page_title Users
-  %div
-    %div
-      %div
+  %table
+    %tr
+      %th
       - if current_user.admin?
         %th permission level
     - @users.each do |user|
-      %div
-        %p
+      %tr
+        %td
           - if user.email
             = user.email
           - elsif user.fb_uid
@@ -16,14 +16,15 @@
             "user #{user.id}"
         - if current_user.admin?
           %td= user.permission_level
-        %p
+        %td
           %a{:href => "/users/#{user.id}"} show
         - if current_user.admin?
-          %div#edit
+          %td
             %a{:href => "/users/#{user.id}/edit"} edit
-          %div#delete
+          %td
             -# this doesn't work for tk
             - if !user.site_admin?
               %a{:href => "/users/#{user.id}/delete", :onclick => "return confirm('you sure?')"} delete
             - else
               site admin
+
