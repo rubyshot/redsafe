@@ -1,0 +1,74 @@
+= RedSafe Gemcutter Setup
+
+Gem Cutter set up was more time consuming than I had anticipated.  Realized that I needed: task "default" => ["test"] inside the Rakefile to have rake command work for me.  Additionally, I needed to use:  gem cert before I could upload to Gemcutter.
+
+== Notes on the Red Safe Gem Creation
+
+*  1) rake
+(Needed to set a default for the task.)
+
+Added default task to Rakefile
+task "default" => ["test"]
+
+*  2)  rake gemspec
+(Worked for me first time.)
+
+Generated: redsafe.gemspec
+redsafe.gemspec is valid.
+
+*  3) rdoc
+(Created documentation for the redsafe project.)
+
+redsafe.rb: mm.m.......c...
+sl_user.rb: c.....cc....
+sl_aah.rb: m.m.....m..
+scarlet_letters.rb: c........
+version.rb: cm
+Generating HTML...
+
+Files:   5
+Classes: 6
+Modules: 7
+Methods: 36
+Elapsed: 0.593s
+
+*  4) gem build redsafe.gemspec
+(Was able to build after I took author name "Ruby Shot" from an array structure and turned it into a string by removing the brackets, [ ].
+
+ # gem build redsafe.gemspec
+ERROR:  While executing gem ... (Gem::InvalidSpecificationException)
+    authors must be Array of Strings
+
+
+*  5) gem push redsafe.gem
+(As mentioned above, the gem certification was not set.  Thus, I couldn't get an upload to Gemcutter.)
+
+Your api key has been stored in ~/.gem/credentials
+Pushing gem to Gemcutter...
+ERROR:  While executing gem ... (Errno::ENOENT)
+    No such file or directory - redsafe.gem
+
+
+*  6) gem cert --build you@yourmail.com
+(Use this command to create the certification for Gemcutter.  I used my email address. I also moved the Public Cert and the Private Key to a safer location.)
+
+Public Cert: gem-public_cert.pem
+Private Key: gem-private_key.pem
+Don't forget to move the key file to somewhere private...
+
+
+*  7)gem push redsafe-0.1.1.gem
+(I was successful when I used the above command.  Used the Gemcutter search and verified that redsafe was being hosted on Gemcutter.  Didn't test it, but left it in place.)
+
+Pushing gem to Gemcutter...
+Successfully registered gem: redsafe (0.1.1)
+
+== Copyright
+
+Copyright (c) 2010 Ruby Shot. See LICENSE for details.
+
+
+
+
+
+
