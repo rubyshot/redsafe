@@ -4,15 +4,15 @@ if Object.const_defined?("DataMapper")
   require 'dm-validations'
   require 'date'
   require 'time'
-  require Pathname(__FILE__).dirname.expand_path + "sl_aah.rb"
-  require Pathname(__FILE__).dirname.expand_path + "sl_user.rb"
 
+  require Pathname(__FILE__).dirname.expand_path + "sl_user.rb"
+  require Pathname(__FILE__).dirname.expand_path + "sl_aah.rb"
 
 end
 
 class User
   if Object.const_defined?("DataMapper")
-    include DmAdapter
+    include SlAah
   else
     throw "'dm-core' required for red safe "
   end

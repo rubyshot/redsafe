@@ -1,7 +1,7 @@
 module SlAah
   def self.included(base)
     base.extend ClassMethods
-    base.class_eval { include SlTech::InstanceMethods }
+    base.class_eval { include SlAah::InstanceMethods }
   end
 
   module ClassMethods

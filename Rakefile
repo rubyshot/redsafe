@@ -1,58 +1,30 @@
 require 'rubygems'
 require 'rake'
-
+task "default" => ["test"]
 begin
-  require 'jeweler'
+require 'jeweler'
   require 'lib/redsafe/version'
   Jeweler::Tasks.new do |gem|
     gem.name = "redsafe"
-    gemspec.version = Redsafe::Version::STRING
-    gem.summary = "This is a gem tool which simplifies signup functionality using various web services for connection credentials."
+    gem.version = Redsafe::Version::STRING
     gem.description = "Red Safe is a conveyor belt to get your web-based project on a fast roll."
-    gem.email = "domochoice@yahoo.com"
+    gem.summary = "This is a gem tool which simplifies signup functionality using various web services for connection credentials."
     gem.homepage = "http://github.com/rubyshot/redsafe"
-    gem.authors = ["Ruby Shot"]
-    gem.add_development_dependency "thoughtbot-shoulda"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
+    gem.author = ["Ruby Shot"]
+    gem.email = "domochoice(at)yahoo:com"
+    gem.add_development_dependency "sinatra"
+    gem.add_development_dependency "dm-core"
+    gem.add_development_dependency "dm-validations"
+    gem.add_development_dependency "dm-timestamps"
+    gem.add_development_dependency "date"
+    gem.add_development_dependency "time"
   end
 rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: sudo gem install jeweler"
 end
 
-require 'rake/testtask'
-Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/*_test.rb'
-  test.verbose = true
-end
 
-begin
-  require 'rcov/rcovtask'
-  Rcov::RcovTask.new do |test|
-    test.libs << 'test'
-    test.pattern = 'test/**/*_test.rb'
-    test.verbose = true
-  end
-rescue LoadError
-  task :rcov do
-    abort "RCov is not available. In order to run rcov, you must: sudo gem install spicycode-rcov"
-  end
-end
 
-task :test => :check_dependencies
 
-task :default => :test
 
-require 'rake/rdoctask'
-Rake::RDocTask.new do |rdoc|
-  if File.exist?('VERSION')
-    version = File.read('VERSION')
-  else
-    version = ""
-  end
 
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "redsafe #{version}"
-  rdoc.rdoc_files.include('README*')
-  rdoc.rdoc_files.include('lib/**/*.rb')
-end
