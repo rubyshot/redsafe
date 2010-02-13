@@ -15,7 +15,7 @@ class SlUser
   has n, :direct_messages, :model => "Ooh"
   has n, :relationships
   has n, :followers, :through => :relationships, :model => "SlUser", :child_key => [:SlUser_id]
-  has n, :follows, :through => :relationships, :model => "SlUser", :remote_name => :SlUser, :child_key => [:follower_id]   
+  has n, :follows, :through => :relationships, :model => "SlUser", :via => :SlUser, :child_key => [:follower_id]   
   if Sinatra.const_defined?('FacebookObject')
     property :fb_uid, String
   end

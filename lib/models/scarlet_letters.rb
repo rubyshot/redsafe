@@ -52,7 +52,7 @@ class User
 #3. resist: receives the desist string and reviews its integrity
 
   def self.sist
-     TIME_FMT = '%Y-%m-%dT%H:%M:%SZ'
+     const_set(TIME_FMT, '%Y-%m-%dT%H:%M:%SZ')
      junk = self.random_string(6)
      t = Time.now.getutc
      time_str = t.strftime(TIME_FMT)
@@ -61,18 +61,19 @@ class User
   end
 
   def self.desist( the_sist_str )
-     TIME_STR_LEN = '0000-00-00T00:00:00Z'.size
-     TIME_VALIDATOR = /\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\dZ/
+     #"0000-00-00T00:00:00Z" 
+     const_set(TIME_STR_LEN, 20 )
+     const_set(TIME_VALIDATOR,"/\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\dZ/")
      timestamp_str = the_sist_str[0...TIME_STR_LEN]
      raise ArgumentError if timestamp_str.size < TIME_STR_LEN
      raise ArgumentError unless timestamp_str.match(TIME_VALIDATOR)
      timestamp = Time.parse(timestamp_str).to_i
      raise ArgumentError if ts < 0
-     return timestamp, the_sist_str[TIME_STR_LEN..-1]
+     return timestamp, the_sist_str[20..-1]
   end
 
   def self.resist(the_sist_str)
-     TIME_RANGE = 60*60*5
+     const_set(TIME_RANGE, 60*60*5)
      timestamp, junk = self.desist(the_sist_str)
      now = Time.now.to_i 
      start = now - TIME_RANGE
